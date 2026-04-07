@@ -10,6 +10,7 @@ const projects = [
   {
     title: "PDF Unlocker",
     desc: "Simple tool to unlock PDFs with focus on monetization.",
+    link: "https://pdf.divyanshuagarwal.com",
   },
 ];
 
@@ -30,6 +31,16 @@ export default function Projects() {
             >
               <h3 className="text-xl font-semibold mb-2">{p.title}</h3>
               <p className="text-gray-400">{p.desc}</p>
+              {p.link && (
+                <a
+                  href={p.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block mt-4 text-blue-400 hover:underline"
+                >
+                  View Live →
+                </a>
+              )}
             </div>
           ))}
         </div>
