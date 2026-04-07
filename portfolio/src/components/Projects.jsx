@@ -12,6 +12,11 @@ const projects = [
     desc: "Simple tool to unlock PDFs with focus on monetization.",
     link: "https://pdf.divyanshuagarwal.com",
   },
+  {
+    title: "Financial Tools",
+    desc: "Collection of financial calculators and utilities.",
+    link: "https://finance.divyanshuagarwal.com",
+  },
 ];
 
 export default function Projects() {
