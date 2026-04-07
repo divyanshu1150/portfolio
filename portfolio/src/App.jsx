@@ -5,6 +5,7 @@ import Experience from "./components/Experience";
 import Profiles from "./components/Profiles";
 import Contact from "./components/Contact";
 import Stats from "./components/Stats";
+import YouTube from "./components/YouTube";
 
 export default function App() {
   return (
@@ -12,6 +13,7 @@ export default function App() {
       <Hero />
       <About />
       <Projects />
+      <YouTube />
       <Experience />
       <Stats />
       <Profiles />
