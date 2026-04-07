@@ -14,8 +14,7 @@ export default function Contact() {
         {/* Email Button */}
         <a
           href="mailto:divyanshu1150@gmail.com"
-          className="inline-block bg-blue-500 px-8 py-3 rounded-xl text-lg font-medium 
-                     hover:bg-blue-600 hover:scale-105 transition duration-200"
+          className="bg-gradient-to-r from-blue-500 to-cyan-500 px-6 py-2 rounded-lg hover:scale-105 transition"
         >
           📩 Email Me
         </a>

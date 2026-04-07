@@ -41,7 +41,7 @@ export default function Projects() {
             <div
               key={i}
               className="p-6 border border-gray-700 rounded-xl 
-                         bg-gray-900 hover:bg-gray-800 
+                         bg-white/5 backdrop-blur-lg border border-white/10 hover:bg-gray-800 
                          hover:scale-[1.02] transition duration-300"
             >
               {/* Title */}
@@ -69,7 +69,7 @@ export default function Projects() {
                     href={p.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-blue-500 px-4 py-2 rounded-lg text-sm hover:bg-blue-600 transition"
+                    className="bg-gradient-to-r from-blue-500 to-cyan-500 px-6 py-2 rounded-lg hover:scale-105 transition"
                   >
                     🚀 Live
                   </a>

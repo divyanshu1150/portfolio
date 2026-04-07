@@ -11,7 +11,7 @@ export default function Stats() {
         <div className="grid md:grid-cols-2 gap-8">
 
           {/* GitHub Heatmap */}
-          <div className="bg-gray-900 p-6 rounded-xl border border-gray-700">
+          <div className="bg-white/5 backdrop-blur-lg border border-white/10 p-6 rounded-xl border border-gray-700">
             <h3 className="text-lg font-semibold mb-4 text-center">
               GitHub Activity
             </h3>
@@ -23,7 +23,7 @@ export default function Stats() {
           </div>
 
           {/* GitHub Stats */}
-          <div className="bg-gray-900 p-6 rounded-xl border border-gray-700">
+          <div className="bg-white/5 backdrop-blur-lg border border-white/10 p-6 rounded-xl border border-gray-700">
             <h3 className="text-lg font-semibold mb-4 text-center">
               GitHub Stats
             </h3>
@@ -35,7 +35,7 @@ export default function Stats() {
           </div>
 
           {/* LeetCode */}
-          <div className="bg-gray-900 p-6 rounded-xl border border-gray-700">
+          <div className="bg-white/5 backdrop-blur-lg border border-white/10 p-6 rounded-xl border border-gray-700">
             <h3 className="text-lg font-semibold mb-4 text-center">
               LeetCode
             </h3>
@@ -47,7 +47,7 @@ export default function Stats() {
           </div>
 
           {/* Codeforces */}
-          <div className="bg-gray-900 p-6 rounded-xl border border-gray-700">
+          <div className="bg-white/5 backdrop-blur-lg border border-white/10 p-6 rounded-xl border border-gray-700">
             <h3 className="text-lg font-semibold mb-4 text-center">
               Codeforces
             </h3>

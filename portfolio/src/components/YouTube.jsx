@@ -1,6 +1,6 @@
 export default function YouTube() {
   return (
-    <section className="py-20 border-b border-gray-800">
+    <section id="youtube" className="py-20 border-b border-gray-800">
       <div className="max-w-6xl mx-auto px-6 text-center">
 
         {/* Heading */}
@@ -14,7 +14,7 @@ export default function YouTube() {
         </p>
 
         {/* Main Card */}
-        <div className="bg-gray-900 p-8 rounded-2xl border border-gray-700">
+        <div className="bg-white/5 backdrop-blur-lg border border-white/10 p-8 rounded-2xl border border-gray-700">
 
           {/* Channel Info */}
           <h3 className="text-2xl font-semibold mb-2">
