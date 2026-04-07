@@ -1,31 +1,4 @@
-const projects = [
-  {
-    title: "Instagram Automation Bot",
-    desc: "Automated content creation and posting using Python & Selenium.",
-    tech: ["Python", "Selenium"],
-    github: "https://github.com/divyanshu1150",
-  },
-  {
-    title: "JSON Diff Tool",
-    desc: "Web tool for comparing JSON with SEO optimization.",
-    tech: ["React", "JavaScript"],
-    github: "https://github.com/divyanshu1150",
-  },
-  {
-    title: "PDF Unlocker",
-    desc: "Simple tool to unlock PDFs with focus on monetization.",
-    tech: ["React", "Backend"],
-    link: "https://pdf.divyanshuagarwal.com",
-    github: "https://github.com/divyanshu1150/pdf-unlocker",
-  },
-  {
-    title: "Financial Tools",
-    desc: "Collection of financial calculators and utilities.",
-    tech: ["React", "Finance"],
-    link: "https://finance.divyanshuagarwal.com",
-    github: "https://github.com/divyanshu1150/tools",
-  },
-];
+import { PROJECTS } from "../content";
 
 export default function Projects() {
   return (
@@ -37,9 +10,9 @@ export default function Projects() {
         </h2>
 
         <div className="grid md:grid-cols-2 gap-6">
-          {projects.map((p, i) => (
+          {PROJECTS.map((p) => (
             <div
-              key={i}
+              key={p.title}
               className="p-6 border border-gray-700 rounded-xl 
                          bg-white/5 backdrop-blur-lg border border-white/10 hover:bg-gray-800 
                          hover:scale-[1.02] transition duration-300"
@@ -52,9 +25,9 @@ export default function Projects() {
 
               {/* Tech Stack */}
               <div className="flex flex-wrap gap-2 mb-4">
-                {p.tech.map((t, idx) => (
+                {p.tech.map((t) => (
                   <span
-                    key={idx}
+                    key={t}
                     className="text-xs bg-gray-800 px-2 py-1 rounded-md text-gray-300"
                   >
                     {t}

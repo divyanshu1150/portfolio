@@ -1,3 +1,5 @@
+import { SITE } from "../content";
+
 export default function YouTube() {
   return (
     <section id="youtube" className="py-20 border-b border-gray-800">
@@ -62,7 +64,7 @@ export default function YouTube() {
           <div className="flex justify-center gap-4 flex-wrap">
 
             <a
-              href="https://www.youtube.com/@SmartRasoiAI"
+              href={SITE.socials.youtubeChannel}
               target="_blank"
               rel="noopener noreferrer"
               className="bg-red-500 px-6 py-2 rounded-lg hover:bg-red-600 transition"
@@ -71,7 +73,7 @@ export default function YouTube() {
             </a>
 
             <a
-              href="https://www.youtube.com/@SmartRasoiAI/videos"
+              href={SITE.socials.youtubeVideos}
               target="_blank"
               rel="noopener noreferrer"
               className="border border-gray-600 px-6 py-2 rounded-lg hover:bg-gray-800 transition"

@@ -1,6 +1,6 @@
 export default function Now() {
   return (
-    <section className="py-20 border-b border-gray-800">
+    <section id="now" className="py-20 border-b border-gray-800">
       <div className="max-w-5xl mx-auto px-6">
 
         <h2 className="text-3xl font-bold mb-10 text-center">

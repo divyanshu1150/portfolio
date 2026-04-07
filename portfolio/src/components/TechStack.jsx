@@ -1,16 +1,8 @@
-export default function TechStack() {
-  const skills = [
-    "Java",
-    "C++",
-    "Python",
-    "React",
-    "Spring Boot",
-    "Selenium",
-    "System Design",
-  ];
+import { SKILLS } from "../content";
 
+export default function TechStack() {
   return (
-    <section className="py-20 border-b border-gray-800">
+    <section id="tech" className="py-20 border-b border-gray-800">
       <div className="max-w-5xl mx-auto px-6 text-center">
 
         <h2 className="text-3xl font-bold mb-10">
@@ -18,9 +10,9 @@ export default function TechStack() {
         </h2>
 
         <div className="flex flex-wrap justify-center gap-4">
-          {skills.map((skill, i) => (
+          {SKILLS.map((skill) => (
             <span
-              key={i}
+              key={skill}
               className="bg-white/5 backdrop-blur-lg border border-white/10 px-4 py-2 rounded-lg border border-gray-700 text-gray-300"
             >
               {skill}

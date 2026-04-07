@@ -7,3 +7,13 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+section {
+  scroll-margin-top: 96px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

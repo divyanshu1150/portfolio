@@ -1,6 +1,8 @@
+import { SITE } from "../content";
+
 export default function Stats() {
   return (
-    <section className="py-20 border-b border-gray-800">
+    <section id="stats" className="py-20 border-b border-gray-800">
       <div className="max-w-6xl mx-auto px-6">
 
         <h2 className="text-3xl font-bold mb-12 text-center">
@@ -16,9 +18,11 @@ export default function Stats() {
               GitHub Activity
             </h3>
             <img
-              src="https://ghchart.rshah.org/divyanshu1150"
+              src={`https://ghchart.rshah.org/${SITE.githubUsername}`}
               alt="GitHub Contributions"
               className="mx-auto"
+              loading="lazy"
+              decoding="async"
             />
           </div>
 
@@ -28,9 +32,11 @@ export default function Stats() {
               GitHub Stats
             </h3>
             <img
-              src="https://github-readme-stats.vercel.app/api?username=divyanshu1150&show_icons=true&theme=tokyonight"
+              src={`https://github-readme-stats.vercel.app/api?username=${SITE.githubUsername}&show_icons=true&theme=tokyonight`}
               alt="GitHub Stats"
               className="mx-auto"
+              loading="lazy"
+              decoding="async"
             />
           </div>
 
@@ -40,9 +46,11 @@ export default function Stats() {
               LeetCode
             </h3>
             <img
-              src="https://leetcard.jacoblin.cool/divyanshu1150?theme=dark&ext=heatmap"
+              src={`https://leetcard.jacoblin.cool/${SITE.githubUsername}?theme=dark&ext=heatmap`}
               alt="LeetCode Stats"
               className="mx-auto"
+              loading="lazy"
+              decoding="async"
             />
           </div>
 
@@ -52,9 +60,11 @@ export default function Stats() {
               Codeforces
             </h3>
             <img
-              src="https://codeforces-readme-stats.vercel.app/api/card?username=divyanshu1150&theme=dark"
+              src={`https://codeforces-readme-stats.vercel.app/api/card?username=${SITE.githubUsername}&theme=dark`}
               alt="Codeforces Stats"
               className="mx-auto"
+              loading="lazy"
+              decoding="async"
             />
           </div>
 

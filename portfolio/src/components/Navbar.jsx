@@ -1,14 +1,8 @@
 import { useState } from "react";
+import { NAV_ITEMS, SITE } from "../content";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-
-  const navItems = [
-    { name: "Home", id: "home" },
-    { name: "Projects", id: "projects" },
-    { name: "YouTube", id: "youtube" },
-    { name: "Contact", id: "contact" },
-  ];
 
   const scrollToSection = (id) => {
     const el = document.getElementById(id);
@@ -23,16 +17,22 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
 
         {/* Logo */}
-        <h1 className="text-lg font-bold cursor-pointer"
-            onClick={() => scrollToSection("home")}>
-          Divyanshu
-        </h1>
+        <a
+          href="#home"
+          onClick={(e) => {
+            e.preventDefault();
+            scrollToSection("home");
+          }}
+          className="text-lg font-bold cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 rounded"
+        >
+          {SITE.name}
+        </a>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex gap-6 items-center">
-          {navItems.map((item, i) => (
+          {NAV_ITEMS.map((item) => (
             <button
-              key={i}
+              key={item.id}
               onClick={() => scrollToSection(item.id)}
               className="text-gray-300 hover:text-white transition"
             >
@@ -55,6 +55,9 @@ export default function Navbar() {
         <button
           className="md:hidden text-white text-xl"
           onClick={() => setOpen(!open)}
+          aria-expanded={open}
+          aria-controls="mobile-nav"
+          aria-label={open ? "Close menu" : "Open menu"}
         >
           ☰
         </button>
@@ -62,11 +65,14 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {open && (
-        <div className="md:hidden bg-white/5 backdrop-blur-lg border border-white/10 border-t border-gray-800 px-6 py-4 space-y-4">
+        <div
+          id="mobile-nav"
+          className="md:hidden bg-white/5 backdrop-blur-lg border border-white/10 border-t border-gray-800 px-6 py-4 space-y-4"
+        >
 
-          {navItems.map((item, i) => (
+          {NAV_ITEMS.map((item) => (
             <button
-              key={i}
+              key={item.id}
               onClick={() => scrollToSection(item.id)}
               className="block w-full text-left text-gray-300 hover:text-white"
             >

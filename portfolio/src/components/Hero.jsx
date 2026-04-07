@@ -1,4 +1,5 @@
 import profile from "../assets/profile.jpg";
+import { SITE } from "../content";
 
 export default function Hero() {
   return (
@@ -16,15 +17,15 @@ export default function Hero() {
       {/* TEXT */}
       <div className="text-center md:text-left max-w-xl">
 <h1 className="text-5xl md:text-6xl font-extrabold mb-4 bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-  Divyanshu Agarwal
+  {SITE.name}
 </h1>
 
 <h2 className="text-xl text-gray-400 mb-6">
-  Software Engineer @ Deutsche Bank
+  {SITE.role}
 </h2>
 
         <p className="text-lg text-gray-300 mb-8">
-          Building automation systems & scalable backend solutions.
+          {SITE.tagline}
         </p>
 
         <div className="flex gap-4 justify-center md:justify-start">

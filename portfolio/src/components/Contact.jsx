@@ -1,3 +1,5 @@
+import { SITE } from "../content";
+
 export default function Contact() {
   return (
     <section id="contact" className="py-20">
@@ -13,7 +15,7 @@ export default function Contact() {
 
         {/* Email Button */}
         <a
-          href="mailto:divyanshu1150@gmail.com"
+          href={`mailto:${SITE.email}`}
           className="bg-gradient-to-r from-blue-500 to-cyan-500 px-6 py-2 rounded-lg hover:scale-105 transition"
         >
           📩 Email Me
@@ -21,7 +23,7 @@ export default function Contact() {
 
         {/* Email Display */}
         <p className="mt-6 text-gray-400">
-          divyanshu1150@gmail.com
+          {SITE.email}
         </p>
 
       </div>
