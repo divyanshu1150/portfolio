@@ -1,66 +1,91 @@
+import { useRef, useState } from "react";
+import { useStaggerReveal } from "../hooks/useReveal";
+import { useReveal } from "../hooks/useReveal";
 import { PROJECTS } from "../content";
 
-export default function Projects() {
+function TiltCard({ children }) {
+  const cardRef = useRef(null);
+  const [transform, setTransform] = useState("");
+
+  const handleMouseMove = (e) => {
+    const rect = cardRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const cx = rect.width / 2;
+    const cy = rect.height / 2;
+    const dx = (x - cx) / cx;
+    const dy = (y - cy) / cy;
+    setTransform(`perspective(600px) rotateX(${-dy * 8}deg) rotateY(${dx * 8}deg) scale(1.02)`);
+  };
+
+  const handleMouseLeave = () => setTransform("");
+
   return (
-    <section id="projects" className="py-20 border-b border-gray-800">
+    <div
+      ref={cardRef}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      style={{ transform, transition: transform ? "none" : "transform 0.5s ease" }}
+      className="glow-card stagger-child reveal bg-white/5 backdrop-blur-lg border border-white/10 rounded-xl p-6 cursor-default"
+    >
+      {children}
+    </div>
+  );
+}
+
+export default function Projects() {
+  const titleRef = useReveal();
+  const gridRef = useStaggerReveal();
+
+  return (
+    <section id="projects" className="py-20 border-b border-gray-800/50 relative z-10">
       <div className="max-w-5xl mx-auto px-6">
 
-        <h2 className="text-3xl font-bold mb-10 text-center md:text-left">
-          Projects
-        </h2>
+        <div ref={titleRef} className="reveal mb-10">
+          <h2 className="section-title text-3xl font-bold">Projects</h2>
+          <p className="text-gray-500 mt-8">Things I've built that actually ship.</p>
+        </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div ref={gridRef} className="grid md:grid-cols-2 gap-6">
           {PROJECTS.map((p) => (
-            <div
-              key={p.title}
-              className="p-6 border border-gray-700 rounded-xl 
-                         bg-white/5 backdrop-blur-lg border border-white/10 hover:bg-gray-800 
-                         hover:scale-[1.02] transition duration-300"
-            >
-              {/* Title */}
-              <h3 className="text-xl font-semibold mb-2">{p.title}</h3>
+            <TiltCard key={p.title}>
+              {/* Accent top bar */}
+              <div className="h-0.5 w-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded mb-4" />
 
-              {/* Description */}
-              <p className="text-gray-400 mb-4">{p.desc}</p>
+              <h3 className="text-xl font-semibold mb-2 text-white">{p.title}</h3>
+              <p className="text-gray-400 mb-4 text-sm leading-relaxed">{p.desc}</p>
 
-              {/* Tech Stack */}
-              <div className="flex flex-wrap gap-2 mb-4">
+              <div className="flex flex-wrap gap-2 mb-5">
                 {p.tech.map((t) => (
-                  <span
-                    key={t}
-                    className="text-xs bg-gray-800 px-2 py-1 rounded-md text-gray-300"
-                  >
+                  <span key={t} className="text-xs bg-blue-500/10 border border-blue-500/20 text-blue-300 px-2.5 py-1 rounded-full">
                     {t}
                   </span>
                 ))}
               </div>
 
-              {/* Buttons */}
               <div className="flex gap-3 flex-wrap">
                 {p.link && (
                   <a
                     href={p.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="bg-gradient-to-r from-blue-500 to-cyan-500 px-6 py-2 rounded-lg hover:scale-105 transition"
+                    className="btn-shimmer text-sm px-5 py-2 rounded-lg text-white font-medium relative z-10"
                   >
-                    🚀 Live
+                    Live ↗
                   </a>
                 )}
-
                 {p.github && (
                   <a
                     href={p.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="border border-gray-600 px-4 py-2 rounded-lg text-sm hover:bg-gray-700 transition"
+                    className="text-sm border border-white/20 px-5 py-2 rounded-lg text-gray-300 hover:border-blue-400 hover:text-white transition-all"
                   >
-                    💻 GitHub
+                    GitHub →
                   </a>
                 )}
               </div>
-
-            </div>
+            </TiltCard>
           ))}
         </div>
 
