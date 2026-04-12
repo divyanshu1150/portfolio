@@ -8,6 +8,10 @@ function TiltCard({ children }) {
   const [transform, setTransform] = useState("");
 
   const handleMouseMove = (e) => {
+    if (e.target.closest("a, button")) {
+      setTransform("");
+      return;
+    }
     const rect = cardRef.current.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
@@ -15,7 +19,7 @@ function TiltCard({ children }) {
     const cy = rect.height / 2;
     const dx = (x - cx) / cx;
     const dy = (y - cy) / cy;
-    setTransform(`perspective(600px) rotateX(${-dy * 8}deg) rotateY(${dx * 8}deg) scale(1.02)`);
+    setTransform(`perspective(800px) rotateX(${-dy * 4}deg) rotateY(${dx * 4}deg) scale(1.01)`);
   };
 
   const handleMouseLeave = () => setTransform("");
@@ -25,7 +29,7 @@ function TiltCard({ children }) {
       ref={cardRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      style={{ transform, transition: transform ? "none" : "transform 0.5s ease" }}
+      style={{ transform, transition: "transform 0.15s ease" }}
       className="glow-card stagger-child reveal bg-white/5 backdrop-blur-lg border border-white/10 rounded-xl p-6 cursor-default"
     >
       {children}

@@ -25,15 +25,15 @@ export const NAV_ITEMS = [
 
 export const PROJECTS = [
   {
+    title: "FreePlay Arena",
+    desc: "Browser-based gaming platform with multiple games, user profiles, and leaderboards — deployed at freeplayarena.com.",
+    tech: ["React", "Node.js", "Games"],
+    link: "https://freeplayarena.com",
+  },
+  {
     title: "Instagram Automation Bot",
     desc: "Automated content creation and posting using Python & Selenium.",
     tech: ["Python", "Selenium"],
-    github: "https://github.com/divyanshu1150",
-  },
-  {
-    title: "JSON Diff Tool",
-    desc: "Web tool for comparing JSON with SEO optimization.",
-    tech: ["React", "JavaScript"],
     github: "https://github.com/divyanshu1150",
   },
   {
