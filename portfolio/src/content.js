@@ -34,6 +34,7 @@ export const PROJECTS = [
     title: "Redis Rate Limiter Service",
     desc: "REST API service implementing the Token Bucket algorithm with Redis. Supports per-user throttling at 100 req/min with auto token refill, TTL-based cleanup, and HTTP 429 responses on limit breach.",
     tech: ["Java", "Spring Boot", "Redis", "Docker"],
+    link: "https://rate-limiter-service-1mrm.onrender.com",
     github: "https://github.com/divyanshu1150/rate-limiter-service",
   },
   {
