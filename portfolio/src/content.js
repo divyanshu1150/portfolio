@@ -48,7 +48,7 @@ export const PROJECTS = [
     title: "Abuse Masker",
     desc: "Real-time content moderation service for live chat. Uses a Trie data structure for O(m) pattern matching — masks profane words while preserving word boundaries, preventing false positives like 'hello' being flagged for 'hell'.",
     tech: ["Java", "Spring Boot", "WebSocket", "Docker"],
-    link: "https://abuse-masker.onrender.com",
+    link: "https://chat.divyanshuagarwal.com",
     github: "https://github.com/divyanshu1150/abuse-masker",
   },
   {
