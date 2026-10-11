@@ -43,10 +43,10 @@ const CATEGORY_META = {
     badge: "bg-emerald-500/15 border-emerald-500/30 text-emerald-400",
     bar: "from-emerald-500 to-teal-400",
   },
-  demo: {
-    label: "Demo Projects",
-    badge: "bg-violet-500/15 border-violet-500/30 text-violet-400",
-    bar: "from-violet-500 to-blue-400",
+  "client-demo": {
+    label: "Client Delivered",
+    badge: "bg-emerald-500/15 border-emerald-500/30 text-emerald-400",
+    bar: "from-emerald-500 to-teal-400",
   },
 };
 
@@ -106,7 +106,7 @@ export default function Projects() {
   const demoRef = useStaggerReveal();
 
   const delivered = PROJECTS.filter((p) => p.category === "delivered");
-  const demo = PROJECTS.filter((p) => p.category === "demo");
+  const clientDemo = PROJECTS.filter((p) => p.category === "client-demo");
 
   return (
     <section id="projects" className="py-20 border-b border-gray-800/50 relative z-10">
@@ -130,14 +130,15 @@ export default function Projects() {
           </div>
         </div>
 
-        {/* Demo Projects */}
+        {/* Client Delivered · Demo Versions */}
         <div>
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-xs font-bold uppercase tracking-widest text-violet-400">Demo Projects</span>
-            <div className="flex-1 h-px bg-violet-500/20" />
+          <div className="flex items-center gap-3 mb-2">
+            <span className="text-xs font-bold uppercase tracking-widest text-emerald-400">Client Delivered · Demo</span>
+            <div className="flex-1 h-px bg-emerald-500/20" />
           </div>
+          <p className="text-xs text-gray-600 mb-6">Delivered to real clients — links below are privacy-safe demo versions.</p>
           <div ref={demoRef} className="grid md:grid-cols-2 gap-6">
-            {demo.map((p) => (
+            {clientDemo.map((p) => (
               <ProjectCard key={p.title} p={p} />
             ))}
           </div>
