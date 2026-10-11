@@ -6,7 +6,7 @@ import { useScramble } from "../hooks/useScramble";
 import { useMagnetic } from "../hooks/useMagnetic";
 
 const ROLES = [
-  "Software Engineer @ Deutsche Bank",
+  "Senior Software Engineer @ Nomura",
   "Backend Systems Builder",
   "Automation Enthusiast",
   "Open Source Contributor",
@@ -151,7 +151,7 @@ export default function Hero() {
           style={{ bottom: 30, right: 10, animation: "float 3s ease-in-out infinite" }}
         >
           <div className="bg-gradient-to-r from-blue-500 to-cyan-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
-            SDE-2 @ DB
+            SSE @ Nomura
           </div>
         </motion.div>
 

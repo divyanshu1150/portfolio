@@ -13,9 +13,9 @@ export default function About() {
           <div className="grid md:grid-cols-2 gap-10 items-start mt-8">
             <div className="space-y-4">
               <p className="text-gray-300 leading-relaxed">
-                I'm <span className="text-blue-400 font-semibold">Divyanshu Agarwal</span>, a Software Engineer at{" "}
-                <span className="text-cyan-400 font-semibold">Deutsche Bank</span> with 2+ years of experience
-                building backend systems and automation tools.
+                I'm <span className="text-blue-400 font-semibold">Divyanshu Agarwal</span>, a Senior Software Engineer at{" "}
+                <span className="text-cyan-400 font-semibold">Nomura</span> with 3+ years of experience
+                building backend systems, automation tools, and production SaaS products.
               </p>
               <p className="text-gray-400 leading-relaxed">
                 I focus on building real-world tools, exploring AI-driven workflows, and improving
@@ -29,8 +29,8 @@ export default function About() {
 
             <div className="grid grid-cols-2 gap-4">
               {[
-                { label: "Company", value: "Deutsche Bank" },
-                { label: "Role", value: "SDE-2" },
+                { label: "Company", value: "Nomura" },
+                { label: "Role", value: "Sr. SWE" },
                 { label: "Focus", value: "Backend + AI" },
                 { label: "Location", value: "India" },
               ].map(({ label, value }) => (
