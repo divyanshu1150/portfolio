@@ -37,9 +37,75 @@ function TiltCard({ children }) {
   );
 }
 
+const CATEGORY_META = {
+  delivered: {
+    label: "Client Delivered",
+    badge: "bg-emerald-500/15 border-emerald-500/30 text-emerald-400",
+    bar: "from-emerald-500 to-teal-400",
+  },
+  demo: {
+    label: "Demo Projects",
+    badge: "bg-violet-500/15 border-violet-500/30 text-violet-400",
+    bar: "from-violet-500 to-blue-400",
+  },
+};
+
+function ProjectCard({ p }) {
+  const meta = CATEGORY_META[p.category];
+  return (
+    <TiltCard key={p.title}>
+      <div className="flex items-start justify-between mb-4 gap-2">
+        <div className={`h-0.5 w-12 bg-gradient-to-r ${meta ? meta.bar : "from-blue-500 to-cyan-500"} rounded mt-3`} />
+        {meta && (
+          <span className={`text-xs font-semibold px-2.5 py-1 rounded-full border ${meta.badge} whitespace-nowrap`}>
+            {meta.label}
+          </span>
+        )}
+      </div>
+
+      <h3 className="text-xl font-semibold mb-2 text-white">{p.title}</h3>
+      <p className="text-gray-400 mb-4 text-sm leading-relaxed">{p.desc}</p>
+
+      <div className="flex flex-wrap gap-2 mb-5">
+        {p.tech.map((t) => (
+          <span key={t} className="text-xs bg-blue-500/10 border border-blue-500/20 text-blue-300 px-2.5 py-1 rounded-full">
+            {t}
+          </span>
+        ))}
+      </div>
+
+      <div className="flex gap-3 flex-wrap">
+        {p.link && (
+          <a
+            href={p.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-shimmer text-sm px-5 py-2 rounded-lg text-white font-medium relative z-10"
+          >
+            Live ↗
+          </a>
+        )}
+        {p.github && (
+          <a
+            href={p.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm border border-white/20 px-5 py-2 rounded-lg text-gray-300 hover:border-blue-400 hover:text-white transition-all"
+          >
+            GitHub →
+          </a>
+        )}
+      </div>
+    </TiltCard>
+  );
+}
+
 export default function Projects() {
   const titleRef = useReveal();
   const gridRef = useStaggerReveal();
+
+  const delivered = PROJECTS.filter((p) => p.category === "delivered");
+  const demo = PROJECTS.filter((p) => p.category === "demo");
 
   return (
     <section id="projects" className="py-20 border-b border-gray-800/50 relative z-10">
@@ -50,47 +116,30 @@ export default function Projects() {
           <p className="text-gray-500 mt-8">Things I've built that actually ship.</p>
         </div>
 
-        <div ref={gridRef} className="grid md:grid-cols-2 gap-6">
-          {PROJECTS.map((p) => (
-            <TiltCard key={p.title}>
-              {/* Accent top bar */}
-              <div className="h-0.5 w-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded mb-4" />
+        {/* Client Delivered */}
+        <div className="mb-12">
+          <div className="flex items-center gap-3 mb-6">
+            <span className="text-xs font-bold uppercase tracking-widest text-emerald-400">Client Delivered</span>
+            <div className="flex-1 h-px bg-emerald-500/20" />
+          </div>
+          <div ref={gridRef} className="grid md:grid-cols-2 gap-6">
+            {delivered.map((p) => (
+              <ProjectCard key={p.title} p={p} />
+            ))}
+          </div>
+        </div>
 
-              <h3 className="text-xl font-semibold mb-2 text-white">{p.title}</h3>
-              <p className="text-gray-400 mb-4 text-sm leading-relaxed">{p.desc}</p>
-
-              <div className="flex flex-wrap gap-2 mb-5">
-                {p.tech.map((t) => (
-                  <span key={t} className="text-xs bg-blue-500/10 border border-blue-500/20 text-blue-300 px-2.5 py-1 rounded-full">
-                    {t}
-                  </span>
-                ))}
-              </div>
-
-              <div className="flex gap-3 flex-wrap">
-                {p.link && (
-                  <a
-                    href={p.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-shimmer text-sm px-5 py-2 rounded-lg text-white font-medium relative z-10"
-                  >
-                    Live ↗
-                  </a>
-                )}
-                {p.github && (
-                  <a
-                    href={p.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm border border-white/20 px-5 py-2 rounded-lg text-gray-300 hover:border-blue-400 hover:text-white transition-all"
-                  >
-                    GitHub →
-                  </a>
-                )}
-              </div>
-            </TiltCard>
-          ))}
+        {/* Demo Projects */}
+        <div>
+          <div className="flex items-center gap-3 mb-6">
+            <span className="text-xs font-bold uppercase tracking-widest text-violet-400">Demo Projects</span>
+            <div className="flex-1 h-px bg-violet-500/20" />
+          </div>
+          <div className="grid md:grid-cols-2 gap-6">
+            {demo.map((p) => (
+              <ProjectCard key={p.title} p={p} />
+            ))}
+          </div>
         </div>
 
       </div>
