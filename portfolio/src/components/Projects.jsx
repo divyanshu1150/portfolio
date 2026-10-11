@@ -102,7 +102,8 @@ function ProjectCard({ p }) {
 
 export default function Projects() {
   const titleRef = useReveal();
-  const gridRef = useStaggerReveal();
+  const deliveredRef = useStaggerReveal();
+  const demoRef = useStaggerReveal();
 
   const delivered = PROJECTS.filter((p) => p.category === "delivered");
   const demo = PROJECTS.filter((p) => p.category === "demo");
@@ -122,7 +123,7 @@ export default function Projects() {
             <span className="text-xs font-bold uppercase tracking-widest text-emerald-400">Client Delivered</span>
             <div className="flex-1 h-px bg-emerald-500/20" />
           </div>
-          <div ref={gridRef} className="grid md:grid-cols-2 gap-6">
+          <div ref={deliveredRef} className="grid md:grid-cols-2 gap-6">
             {delivered.map((p) => (
               <ProjectCard key={p.title} p={p} />
             ))}
@@ -135,7 +136,7 @@ export default function Projects() {
             <span className="text-xs font-bold uppercase tracking-widest text-violet-400">Demo Projects</span>
             <div className="flex-1 h-px bg-violet-500/20" />
           </div>
-          <div className="grid md:grid-cols-2 gap-6">
+          <div ref={demoRef} className="grid md:grid-cols-2 gap-6">
             {demo.map((p) => (
               <ProjectCard key={p.title} p={p} />
             ))}
